@@ -1,0 +1,13 @@
+<div class="user-info-container">
+  <h2>Información del Usuario</h2>
+  <div class="user-info">
+    <p><strong>Nombre:</strong> {{ user.name }}</p>
+    <p><strong>Identificación:</strong> {{ user.identification }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Edad:</strong> {{ user.age }}</p>
+    <p><strong>Usuario:</strong> {{ user.username }}</p>
+  </div>
+  <div class="button-container">
+    <button (click)="logout()">Cerrar Sesión</button>
+  </div>
+</div>

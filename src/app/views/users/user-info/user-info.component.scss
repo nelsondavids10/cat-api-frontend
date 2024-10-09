@@ -1,0 +1,63 @@
+/* user-info.component.scss */
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .user-info {
+    width: 100%;
+    text-align: left;
+
+    p {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #555;
+    }
+
+    strong {
+      color: #333;
+    }
+  }
+
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      background-color: #007bff;
+      color: white;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 480px) {
+  .user-info-container {
+    width: 90%;
+  }
+}

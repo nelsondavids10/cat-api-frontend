@@ -1,0 +1,74 @@
+<div class="container">
+  <h2>Seleccionar una Raza de Gato</h2>
+
+  <div class="form-group">
+    <label for="breeds">Razas de Gato:</label>
+    <select id="breeds" (change)="onBreedSelect($event)" class="form-control">
+      <option *ngFor="let breed of breeds" [value]="breed.id">{{ breed.name }}</option>
+    </select>
+  </div>
+
+  <!-- Carrusel de imágenes -->
+  <div *ngIf="images.length" class="mt-4">
+    <h3>Imagen de {{ selectedBreed?.name }}</h3>
+    <div id="catCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img [src]="images[0]" alt="Imagen de la raza de gato" class="d-block w-100">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#catCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#catCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Información de la raza seleccionada -->
+  <div *ngIf="selectedBreed" class="mt-4">
+    <h3>{{ selectedBreed.name }}</h3>
+    <p>{{ selectedBreed.description }}</p>
+    <p><strong>Temperamento:</strong> {{ selectedBreed.temperament }}</p>
+    <p><strong>Origen:</strong> {{ selectedBreed.origin }}</p>
+    <p><strong>Esperanza de vida:</strong> {{ selectedBreed.life_span }}</p>
+    <a [href]="selectedBreed.cfa_url" target="_blank">Más sobre esta raza</a>
+  </div>
+
+  <!-- Filtro de búsqueda -->
+  <div class="mt-4">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Buscar raza de gato"
+      class="form-control"
+    />
+    <div class="form-buttons mt-2">
+      <button (click)="searchBreeds()" class="btn btn-primary">Buscar</button>
+      <button (click)="clean()" class="btn btn-secondary">Limpiar</button>
+    </div>
+  </div>
+
+  <!-- Tabla con datos relevantes -->
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Origen</th>
+        <th>Temperamento</th>
+        <th>Esperanza de vida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let breed of breeds">
+        <td>{{ breed.name }}</td>
+        <td>{{ breed.origin }}</td>
+        <td>{{ breed.temperament }}</td>
+        <td>{{ breed.life_span }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
